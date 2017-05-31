@@ -93,7 +93,7 @@ module.exports = postcss.plugin('postcss-bem', function (opts) {
                 if (subrule) {
                     last = subrule;
                 } else {
-                    node.moveTo(newRule);
+                    newRule.append(node);
                 }
             });
             rule.remove();
@@ -123,7 +123,7 @@ module.exports = postcss.plugin('postcss-bem', function (opts) {
             if (newRule) {
                 last = newRule;
             } else {
-                rule.moveTo(newComponent);
+                newComponent.append(rule);
             }
         });
 
@@ -180,7 +180,7 @@ module.exports = postcss.plugin('postcss-bem', function (opts) {
                 });
 
                 utility.each(function (node) {
-                    node.moveTo(newUtility);
+                    newUtility.append(node);
                 });
                 utility.replaceWith(newUtility);
             });
@@ -203,7 +203,7 @@ module.exports = postcss.plugin('postcss-bem', function (opts) {
 
             var node = namespace.last;
             while (node) {
-                node.moveAfter(namespace);
+                namespace.after(node);
                 node = namespace.last;
             }
             namespace.remove();
@@ -242,9 +242,9 @@ module.exports = postcss.plugin('postcss-bem', function (opts) {
                 });
 
                 when.each(function (node) {
-                    node.moveTo(newWhen);
+                    newWhen.append(node);
                 });
-                newWhen.moveAfter(parent);
+                parent.after(newWhen);
                 when.remove();
             });
         }

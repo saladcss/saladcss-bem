@@ -1,7 +1,7 @@
 .nav {}
 .nav__item {
-    display: inline-block
+        display: inline-block
 }
 .nav_placement_header {
-    background-color: red
+        background-color: red
 }
