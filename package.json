@@ -10,7 +10,7 @@
         "url":  "https://github.com/saladcss/saladcss-bem.git"
     },
     "dependencies": {
-        "postcss": "^5.0.8"
+        "postcss": "^6.0.1"
     },
     "devDependencies": {
         "gulp-eslint": "^0.12.0",
